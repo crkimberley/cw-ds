@@ -36,10 +36,10 @@ public class LinkedList implements List {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         }
         Node temp = nodeBeforeIndexNode(index);
-        if (temp.next.next == null) {
+        ReturnObject returnObject = new ReturnObjectImpl(temp.next.value);
+        if (temp.next == tail) {
             tail = temp;
         }
-        ReturnObject returnObject = new ReturnObjectImpl(temp.next.value);
         temp.next = temp.next.next;
         size--;
         return returnObject;
@@ -53,8 +53,8 @@ public class LinkedList implements List {
         if (item == null) {
             return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
         }
-        Node temp = nodeBeforeIndexNode(index);
         Node newNode = new Node(item);
+        Node temp = nodeBeforeIndexNode(index);
         newNode.next = temp.next;
         temp.next = newNode;
         size++;
