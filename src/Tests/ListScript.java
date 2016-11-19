@@ -50,10 +50,15 @@ public class ListScript {
         System.out.println(list.size());
         list2.printList();
 
-        LinkedList list3 = new LinkedList();
-        for (int i=0; i<3000000; i++) {
-            list3.add(i);
+        ArrayList list3 = new ArrayList();
+        LinkedList list4 = new LinkedList();
+        for (int i=0; i<8000000; i++) {
+            list3.add("carrots and peas");
         }
         System.out.println(list3.size());
+        for (int i=0; i<6000000; i++) {
+            list4.add("carrots and peas");
+        }
+        System.out.println(list4.size());
     }
 }

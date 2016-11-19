@@ -3,8 +3,7 @@
  */
 public class LinkedList implements List {
 
-    private Node head = new Node();
-    private Node tail = head;
+    private Node head = new Node(), tail = head;
     private int size = 0;
 
     @Override
@@ -25,11 +24,7 @@ public class LinkedList implements List {
         if (index < 0 || index >= size) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         }
-        Node temp = head.getNext();
-        for (int count = 0; count < index; count++) {
-            temp = temp.getNext();
-        }
-        return new ReturnObjectImpl(temp.getValue());
+        return new ReturnObjectImpl(nodeBeforeIndexNode(index).next.value);
     }
 
     @Override
@@ -40,15 +35,12 @@ public class LinkedList implements List {
         if (index < 0 || index >= size) {
             return new ReturnObjectImpl(ErrorMessage.INDEX_OUT_OF_BOUNDS);
         }
-        Node temp = head;
-        for (int count = 0; count < index; count++) {
-            temp = temp.getNext();
-        }
-        if (temp.getNext().getNext() == null) {
+        Node temp = nodeBeforeIndexNode(index);
+        if (temp.next.next == null) {
             tail = temp;
         }
-        ReturnObject returnObject = new ReturnObjectImpl(temp.getNext().getValue());
-        temp.setNext(temp.getNext().getNext());
+        ReturnObject returnObject = new ReturnObjectImpl(temp.next.value);
+        temp.next = temp.next.next;
         size--;
         return returnObject;
     }
@@ -61,13 +53,10 @@ public class LinkedList implements List {
         if (item == null) {
             return new ReturnObjectImpl(ErrorMessage.INVALID_ARGUMENT);
         }
-        Node temp = head;
-        for (int count = 0; count < index; count++) {
-            temp = temp.getNext();
-        }
+        Node temp = nodeBeforeIndexNode(index);
         Node newNode = new Node(item);
-        newNode.setNext(temp.getNext());
-        temp.setNext(newNode);
+        newNode.next = temp.next;
+        temp.next = newNode;
         size++;
         return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
     }
@@ -93,24 +82,20 @@ public class LinkedList implements List {
         public Node(Object value) {
             this.value = value;
         }
+    }
 
-        public Object getValue() {
-            return value;
+    private Node nodeBeforeIndexNode(int index) {
+        Node temp = head;
+        for (int count = 0; count < index; count++) {
+            temp = temp.next;
         }
-
-        public Node getNext() {
-            return next;
-        }
-
-        public void setNext(Node node) {
-            next = node;
-        }
+        return temp;
     }
 
     // FOR TESTING
     public void printList() {
-        for (Node temp = head.getNext(); temp != null; temp = temp.getNext()) {
-            System.out.println(temp.getValue());
+        for (Node temp = head.next; temp != null; temp = temp.next) {
+            System.out.println(temp.value);
         }
     }
 }

@@ -3,7 +3,7 @@
  */
 public class ArrayList implements List {
 
-    private int INITIAL_LENGTH = 5;
+    private int INITIAL_LENGTH = 10;
     private Object[] array = new Object[INITIAL_LENGTH];
     private int size = 0;
 
