@@ -35,8 +35,8 @@ public class ArrayList implements List {
         ReturnObject returnObject = get(index);
         if (!returnObject.hasError()) {
             shiftArrayUpAfterRemove(index);
+            size--;
         }
-        size--;
         return returnObject;
     }
 
