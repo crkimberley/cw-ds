@@ -91,5 +91,22 @@ public class ListScript {
         //FunctionalArrayList restOfList = (FunctionalArrayList) list5.rest();
         FunctionalLinkedList restOfList = (FunctionalLinkedList) list5.rest();
         restOfList.printList();
+
+        SampleableListImpl list6 = new SampleableListImpl();
+        list6.add("amy");
+        list6.add("bill");
+        list6.add("claire");
+        list6.add("debbie");
+        list6.add("ed");
+        list6.add("fiona");
+        list6.add("gareth");
+        list6.add("harry");
+        list6.add("ian");
+        list6.add("jake");
+        System.out.println("SampleableList - whole list\t");
+        list6.printList();
+        System.out.println("SampleableListImpl - sample()\t");
+        SampleableListImpl sampleList = (SampleableListImpl) list6.sample();
+        sampleList.printList();
     }
 }
