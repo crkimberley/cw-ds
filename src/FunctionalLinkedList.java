@@ -1,5 +1,7 @@
 /**
  * @author crkimberley on 18/11/2016.
+ *
+ * @see FunctionalList
  */
 public class FunctionalLinkedList extends LinkedList implements FunctionalList {
 

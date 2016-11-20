@@ -1,5 +1,7 @@
 /**
  * @author crkimberley on 19/11/2016.
+ *
+ * Some basic tests
  */
 public class ListScript {
 
@@ -104,10 +106,8 @@ public class ListScript {
         list6.add("ian");
         list6.add("jake");
         System.out.println("SampleableList - whole list\t");
-        list6.printList();
         System.out.println("SampleableListImpl - sample()\t");
         SampleableListImpl sampleList = (SampleableListImpl) list6.sample();
-        sampleList.printList();
 
         StackImpl stack1 = new StackImpl(new ArrayList());
         System.out.println("stack1.isEmpty()\t" + stack1.isEmpty());

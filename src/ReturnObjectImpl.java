@@ -1,5 +1,7 @@
 /**
  * @author crkimberley on 18/11/2016.
+ *
+ * @see ReturnObject
  */
 public class ReturnObjectImpl implements ReturnObject {
 
