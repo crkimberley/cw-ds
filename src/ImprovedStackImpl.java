@@ -2,16 +2,20 @@
  * @author crkimberley on 18/11/2016.
  */
 public class ImprovedStackImpl implements ImprovedStack {
-    /**
-     * Returns a copy of this stack with the items reversed, the top
-     * elements on the original stack is at the bottom of the new
-     * stack and viceversa.
-     *
-     * @return a copy of this stack with the items reversed.
-     */
+
+    private List list;
+
+    public ImprovedStackImpl(List list) {
+        this.list = list;
+    }
+
     @Override
     public ImprovedStack reverse() {
-        return null;
+        ImprovedStack reverseStack = new ImprovedStackImpl(new ArrayList());
+        for (int i = 0; i < list.size(); i++) {
+            reverseStack.push(list.get(i));
+        }
+        return reverseStack;
     }
 
     /**
@@ -28,57 +32,28 @@ public class ImprovedStackImpl implements ImprovedStack {
 
     }
 
-    /**
-     * Returns true if the stack is empty, false otherwise.
-     *
-     * @return true if the stack is empty, false otherwise.
-     */
     @Override
     public boolean isEmpty() {
-        return false;
+        return list.isEmpty();
     }
 
-    /**
-     * Returns the number of items currently in the stack.
-     *
-     * @return the number of items currently in the stack
-     */
     @Override
     public int size() {
-        return 0;
+        return list.size();
     }
 
-    /**
-     * Adds an element at the top of the stack.
-     *
-     * @param item the new item to be added
-     */
     @Override
     public void push(Object item) {
-
+        list.add(item);
     }
 
-    /**
-     * Returns the element at the top of the stack. The stack is
-     * left unchanged.
-     *
-     * @return If stack is not empty, the item on the top is returned. If the
-     * stack is empty, an appropriate error.
-     */
     @Override
     public ReturnObject top() {
-        return null;
+        return list.get(size() - 1);
     }
 
-    /**
-     * Returns the element at the top of the stack. The element is
-     * removed frmo the stack.
-     *
-     * @return If stack is not empty, the item on the top is returned. If the
-     * stack is empty, an appropriate error.
-     */
     @Override
     public ReturnObject pop() {
-        return null;
+        return list.remove(size() - 1);
     }
 }
