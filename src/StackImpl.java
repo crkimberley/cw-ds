@@ -7,57 +7,28 @@ public class StackImpl extends AbstractStack {
         super(list);
     }
 
-    /**
-     * Returns true if the stack is empty, false otherwise.
-     *
-     * @return true if the stack is empty, false otherwise.
-     */
     @Override
     public boolean isEmpty() {
-        return false;
+        return internalList.isEmpty();
     }
 
-    /**
-     * Returns the number of items currently in the stack.
-     *
-     * @return the number of items currently in the stack
-     */
     @Override
     public int size() {
-        return 0;
+        return internalList.size();
     }
 
-    /**
-     * Adds an element at the top of the stack.
-     *
-     * @param item the new item to be added
-     */
     @Override
     public void push(Object item) {
-
+        internalList.add(item);
     }
 
-    /**
-     * Returns the element at the top of the stack. The stack is
-     * left unchanged.
-     *
-     * @return If stack is not empty, the item on the top is returned. If the
-     * stack is empty, an appropriate error.
-     */
     @Override
     public ReturnObject top() {
-        return null;
+        return internalList.get(size() - 1);
     }
 
-    /**
-     * Returns the element at the top of the stack. The element is
-     * removed frmo the stack.
-     *
-     * @return If stack is not empty, the item on the top is returned. If the
-     * stack is empty, an appropriate error.
-     */
     @Override
     public ReturnObject pop() {
-        return null;
+        return internalList.remove(size() - 1);
     }
 }
