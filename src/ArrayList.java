@@ -89,14 +89,6 @@ public class ArrayList implements List {
         }
     }
 
-    public Object[] getArray() {
-        return array;
-    }
-
-    public int getSize() {
-        return size;
-    }
-
     // FOR TESTING
     public void printList() {
         for (int i=0; array[i] != null; i++) {

@@ -61,7 +61,8 @@ public class ListScript {
         }
         System.out.println(list4.size());
 
-        FunctionalArrayList list5 = new FunctionalArrayList();
+        //FunctionalArrayList list5 = new FunctionalArrayList();
+        FunctionalLinkedList list5 = new FunctionalLinkedList();
         System.out.println("list5.isEmpty()\t" + list5.isEmpty());
         System.out.println(list5.head().getError());
         list5.add("amy");
@@ -86,8 +87,9 @@ public class ListScript {
         list5.printList();
         System.out.println("FunctionalArrayList - head()\t");
         System.out.println(list5.head().getReturnValue());
-        //FunctionalArrayList restOfList = (FunctionalArrayList) list5.rest();
         System.out.println("FunctionalArrayList - rest()\t");
-        ((FunctionalArrayList) list5.rest()).printList();
+        //FunctionalArrayList restOfList = (FunctionalArrayList) list5.rest();
+        FunctionalLinkedList restOfList = (FunctionalLinkedList) list5.rest();
+        restOfList.printList();
     }
 }

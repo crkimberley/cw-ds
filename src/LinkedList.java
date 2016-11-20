@@ -73,7 +73,7 @@ public class LinkedList implements List {
         return new ReturnObjectImpl(ErrorMessage.NO_ERROR);
     }
 
-    private static class Node {
+    protected static class Node {
         private Object value;
         private Node next = null;
 
