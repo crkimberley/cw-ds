@@ -108,5 +108,17 @@ public class ListScript {
         System.out.println("SampleableListImpl - sample()\t");
         SampleableListImpl sampleList = (SampleableListImpl) list6.sample();
         sampleList.printList();
+
+        StackImpl stack = new StackImpl(new ArrayList());
+        System.out.println("stack.isEmpty()\t" + stack.isEmpty());
+        stack.push("andrea");
+        stack.push("belinda");
+        stack.push("carrie");
+        System.out.println("stack.size()\t" + stack.size());
+        System.out.println("stack.top()\t" + stack.top().getReturnValue());
+        System.out.println("stack.pop()\t" + stack.pop().getReturnValue());
+        System.out.println("stack.pop()\t" + stack.pop().getReturnValue());
+        System.out.println("stack.pop()\t" + stack.pop().getReturnValue());
+        System.out.println("stack.pop()\t" + stack.pop().getError());
     }
 }
