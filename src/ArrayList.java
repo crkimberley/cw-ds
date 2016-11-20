@@ -88,11 +88,4 @@ public class ArrayList implements List {
             array[i] = array[i-1];
         }
     }
-
-    // FOR TESTING
-    public void printList() {
-        for (int i=0; array[i] != null; i++) {
-            System.out.println(get(i).getReturnValue());
-        }
-    }
 }
