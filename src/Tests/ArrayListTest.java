@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 public class ArrayListTest {
     ArrayList emptyList;
     ArrayList list1Number;
-    ArrayList millionStrings;
+    ArrayList listMillionNumbers;
     ArrayList listNames;
 
     @Before
@@ -17,9 +17,9 @@ public class ArrayListTest {
         emptyList = new ArrayList();
         list1Number = new ArrayList();
         list1Number.add(13);
-        millionStrings = new ArrayList();
+        listMillionNumbers = new ArrayList();
         for (int i=0; i<1000000; i++) {
-            millionStrings.add("monkey");
+            listMillionNumbers.add(i);
         }
         listNames = new ArrayList();
         listNames.add("...");
@@ -34,21 +34,40 @@ public class ArrayListTest {
     public void testIsEmpty() {
         assertTrue(emptyList.isEmpty());
         assertFalse(list1Number.isEmpty());
-        assertFalse(millionStrings.isEmpty());
+        assertFalse(listMillionNumbers.isEmpty());
     }
 
     @Test
     public void testSize() {
         assertEquals(0, emptyList.size());
         assertEquals(1, list1Number.size());
-        assertEquals(1000000, millionStrings.size());
+        assertEquals(1000000, listMillionNumbers.size());
     }
 
     @Test
-    public void testGet() {
+    public void testGetFromEmptyList() {
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, emptyList.get(0).getError());
+        assertNull(emptyList.get(0).getReturnValue());
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, emptyList.get(1).getError());
+        assertNull(emptyList.get(1).getReturnValue());
         assertEquals(ErrorMessage.EMPTY_STRUCTURE, emptyList.get(-1).getError());
+        assertNull(emptyList.get(-1).getReturnValue());
+    }
+
+    @Test
+    public void testGetWithOutOfBoundsIndex() {
+        assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, list1Number.get(-1).getError());
+        assertNull(list1Number.get(-1).getReturnValue());
+        assertEquals(ErrorMessage.INDEX_OUT_OF_BOUNDS, list1Number.get(1).getError());
+        assertNull(list1Number.get(1).getReturnValue());
+    }
+
+    @Test
+    public void testGetWithValidIndices() {
+        assertEquals(13, list1Number.get(0).getReturnValue());
+        assertEquals("...", listNames.get(0).getReturnValue());
+        assertEquals("enid", listNames.get(5).getReturnValue());
+        assertEquals(500000, listMillionNumbers.get(500000).getReturnValue());
     }
 
     @Test
