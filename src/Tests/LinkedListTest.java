@@ -6,15 +6,15 @@ import static org.junit.Assert.*;
 /**
  * @author crkimberley on 21/11/2016.
  */
-public class ArrayListTest {
+public class LinkedListTest {
     List emptyList, list1Number, listMillionNumbers, listNames;
 
     @Before
     public void setUp() throws Exception {
-        emptyList = new ArrayList();
-        list1Number = new ArrayList();
-        listMillionNumbers = new ArrayList();
-        listNames = new ArrayList();
+        emptyList = new LinkedList();
+        list1Number = new LinkedList();
+        listMillionNumbers = new LinkedList();
+        listNames = new LinkedList();
         list1Number.add(13);
         for (int i=0; i<1000000; i++) {
             listMillionNumbers.add(i);
