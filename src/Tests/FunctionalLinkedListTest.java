@@ -1,20 +1,20 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * @author crkimberley on 21/11/2016.
  */
-public class FunctionalArrayListTest {
+public class FunctionalLinkedListTest {
     FunctionalList emptyList, list1Number, listMillionNumbers, listNames;
 
     @Before
     public void setUp() throws Exception {
-        emptyList = new FunctionalArrayList();
-        list1Number = new FunctionalArrayList();
-        listMillionNumbers = new FunctionalArrayList();
-        listNames = new FunctionalArrayList();
+        emptyList = new FunctionalLinkedList();
+        list1Number = new FunctionalLinkedList();
+        listMillionNumbers = new FunctionalLinkedList();
+        listNames = new FunctionalLinkedList();
         list1Number.add(13);
         for (int i=0; i<1000000; i++) {
             listMillionNumbers.add(i);
