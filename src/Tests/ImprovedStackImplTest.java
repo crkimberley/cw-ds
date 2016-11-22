@@ -55,6 +55,36 @@ public class ImprovedStackImplTest {
         stackNames.remove("birkbeck");
         assertEquals(5, stackNames.size());
         assertEquals("derek", stackNames.top().getReturnValue());
+
+        ImprovedStack newStack = new ImprovedStackImpl(new ArrayList());
+        newStack.push("a");
+        newStack.push("b");
+        newStack.push("b");
+        newStack.push("c");
+        newStack.push("d");
+        newStack.push("d");
+        newStack.push("d");
+        newStack.push("e");
+        newStack.push("e");
+        newStack.push("f");
+        newStack.push("g");
+        newStack.push("g");
+        newStack.push("g");
+        newStack.push("g");
+        newStack.push("g");
+        newStack.push("g");
+        assertEquals(16, newStack.size());
+        newStack.remove("b");
+        assertEquals(14, newStack.size());
+        newStack.remove("g");
+        assertEquals(8, newStack.size());
+        assertEquals("f", newStack.pop().getReturnValue());
+        assertEquals("e", newStack.pop().getReturnValue());
+        assertEquals(6, newStack.size());
+        newStack.remove("e");
+        assertEquals(5, newStack.size());
+        newStack.remove("d");
+        assertEquals(2, newStack.size());
     }
 
     @Test
