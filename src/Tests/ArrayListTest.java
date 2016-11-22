@@ -127,4 +127,13 @@ public class ArrayListTest {
         assertEquals(ErrorMessage.NO_ERROR, listNames.add(2, "beth").getError());
         assertEquals("claire", listNames.get(4).getReturnValue());
     }
+
+    @Test
+    public void testBigList() {
+        List bigList = new ArrayList();
+        for (int i=0; i<2000000; i++) {
+            bigList.add(i);
+        }
+        assertEquals(2000000, bigList.size());
+    }
 }

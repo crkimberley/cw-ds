@@ -50,4 +50,13 @@ public class FunctionalArrayListTest {
         assertEquals("claire", listNames.rest().get(2).getReturnValue());
         assertEquals("enid", listNames.rest().get(4).getReturnValue());
     }
+
+    @Test
+    public void testBigList() {
+        FunctionalList bigList = new FunctionalArrayList();
+        for (int i=0; i<2000000; i++) {
+            bigList.add(i);
+        }
+        assertEquals(2000000, bigList.size());
+    }
 }

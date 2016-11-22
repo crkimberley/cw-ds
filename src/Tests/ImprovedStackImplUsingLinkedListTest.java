@@ -146,4 +146,13 @@ public class ImprovedStackImplUsingLinkedListTest {
         assertEquals("derek", stackNames.pop().getReturnValue());
         assertEquals(4, stackNames.size());
     }
+
+    @Test
+    public void testBigStack() {
+        ImprovedStack bigStack = new ImprovedStackImpl(new LinkedList());
+        for (int i=0; i<2000000; i++) {
+            bigStack.push(i);
+        }
+        assertEquals(2000000, bigStack.size());
+    }
 }

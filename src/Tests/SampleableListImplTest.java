@@ -45,4 +45,13 @@ public class SampleableListImplTest {
         assertEquals(999998, listMillionNumbers.sample().get(499999).getReturnValue());
         assertEquals(500000, listMillionNumbers.sample().size());
     }
+
+    @Test
+    public void testBigList() {
+        SampleableList bigList = new SampleableListImpl();
+        for (int i=0; i<2000000; i++) {
+            bigList.add(i);
+        }
+        assertEquals(2000000, bigList.size());
+    }
 }
