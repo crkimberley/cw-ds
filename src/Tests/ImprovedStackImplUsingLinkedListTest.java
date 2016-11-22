@@ -6,15 +6,15 @@ import static org.junit.Assert.*;
 /**
  * @author crkimberley on 22/11/2016.
  */
-public class ImprovedStackImplTest {
+public class ImprovedStackImplUsingLinkedListTest {
     ImprovedStack emptyStack, stack1Number, stackMillionNumbers, stackNames;
 
     @Before
     public void setUp() throws Exception {
-        emptyStack = new ImprovedStackImpl(new ArrayList());
-        stack1Number = new ImprovedStackImpl(new ArrayList());
-        stackMillionNumbers = new ImprovedStackImpl(new ArrayList());
-        stackNames = new ImprovedStackImpl(new ArrayList());
+        emptyStack = new ImprovedStackImpl(new LinkedList());
+        stack1Number = new ImprovedStackImpl(new LinkedList());
+        stackMillionNumbers = new ImprovedStackImpl(new LinkedList());
+        stackNames = new ImprovedStackImpl(new LinkedList());
         stack1Number.push(13);
         for (int i=0; i<1000000; i++) {
             stackMillionNumbers.push(i);
@@ -56,7 +56,7 @@ public class ImprovedStackImplTest {
         assertEquals(5, stackNames.size());
         assertEquals("derek", stackNames.top().getReturnValue());
 
-        ImprovedStack newStack = new ImprovedStackImpl(new ArrayList());
+        ImprovedStack newStack = new ImprovedStackImpl(new LinkedList());
         newStack.push("a");
         newStack.push("b");
         newStack.push("b");
