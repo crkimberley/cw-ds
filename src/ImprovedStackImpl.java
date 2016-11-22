@@ -25,6 +25,7 @@ public class ImprovedStackImpl implements ImprovedStack {
         for (int i = 0; i < list.size(); i++) {
             if (object.equals(list.get(i).getReturnValue())) {
                 list.remove(i);
+                i--;
             }
         }
     }
