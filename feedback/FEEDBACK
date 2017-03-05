@@ -1,0 +1,22 @@
+Please see the general comments, some of which are applicable to your submission.
+The output of the various checking tools should be paid attention to although checkstyle is a little "aggressive".
+
+Good set of tests. Well implemented. 
+
+In SampleableListImpl avoid "Magic numbers" if at all possible "i = i + 2" - just a small point
+
+Reference the interface documentation in the implementations
+
+In ArrayList use constants where appropriate
+
+private int INITIAL_LENGTH = 10; 
+
+static and final 
+
+Include ordinary comments where appropriate in the code
+
+Perhaps avoid multiple decs on a single line as these can easily be missed by the reader
+
+private Node head = new Node(), tail = head; (LinkedList)
+
+Excellent effort
